@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="steps"><b>Step 4 of 6:</b> Bank Details</div>
+<h2>Bank Details for Pension Disbursement</h2>
+<form method="post">
+  <label>Bank Account Number</label>
+  <input type="text" name="bank_account" value="{{ data.get('bank_account','') }}">
+  <label>IFSC Code</label>
+  <input type="text" name="ifsc" value="{{ data.get('ifsc','') }}">
+  <p class="note">Pension will be credited by DBT to this account. Ensure the account
+  is in the name of the applicant.</p>
+  <p><button class="btn" type="submit">Save &amp; Continue</button></p>
+</form>
+{% endblock %}

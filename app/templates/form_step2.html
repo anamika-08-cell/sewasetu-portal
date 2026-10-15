@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="steps"><b>Step 3 of 6:</b> Address Details</div>
+<h2>Address Details</h2>
+<form method="post">
+  <label>Village / Town</label>
+  <input type="text" name="village" value="{{ data.get('village','') }}">
+  <label>Block</label>
+  <select name="block">
+    <option value="">--Select--</option>
+    {% for b in blocks %}
+    <option {% if data.get('block')==b %}selected{% endif %}>{{ b }}</option>
+    {% endfor %}
+  </select>
+  <p><button class="btn" type="submit">Save &amp; Continue</button></p>
+</form>
+{% endblock %}

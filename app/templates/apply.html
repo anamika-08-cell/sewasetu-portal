@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="steps"><b>Step 1 of 6:</b> Mobile Verification &rsaquo; Personal Details &rsaquo; Address &rsaquo; Bank Details &rsaquo; Document Upload &rsaquo; Declaration</div>
+<h2>Mobile Verification</h2>
+<form method="post">
+  <label>Mobile Number</label>
+  <input type="text" name="mobile" maxlength="10" placeholder="10 digit mobile number">
+  <label>Security Check: What is {{ captcha_q }}?</label>
+  <input type="text" name="captcha" style="max-width:120px">
+  <p><button class="btn" type="submit">Send OTP</button></p>
+</form>
+<p class="note">An OTP will be sent to your mobile number by SMS. OTP is valid for 5 minutes.</p>
+{% endblock %}

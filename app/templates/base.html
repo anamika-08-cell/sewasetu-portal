@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sewa Setu - Old Age Pension Portal</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f0f2f5;color:#222}
+.header{background:#0b3d6e;color:#fff;padding:14px 28px}
+.header h1{margin:0;font-size:22px}
+.header .sub{font-size:13px;color:#cfe0f3}
+.band{background:#f7931e;height:5px}
+.container{max-width:860px;margin:24px auto;background:#fff;padding:28px;
+border:1px solid #d7dbe0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.btn{background:#0b3d6e;color:#fff;border:none;padding:10px 22px;font-size:15px;cursor:pointer}
+.btn:hover{background:#0d4a85}
+label{display:block;margin:12px 0 4px;font-weight:bold;font-size:14px}
+input[type=text],input[type=password],select{width:100%;max-width:420px;padding:8px;
+border:1px solid #aab;font-size:14px}
+.flash{background:#fdecea;border:1px solid #e57373;color:#a33;padding:10px 14px;margin:14px 0}
+.note{font-size:13px;color:#555}
+.footer{max-width:860px;margin:10px auto 40px;font-size:12px;color:#666;text-align:center}
+.footer a{color:#0b3d6e;margin:0 8px}
+table.tbl{border-collapse:collapse;width:100%}
+table.tbl td,table.tbl th{border:1px solid #ccd;padding:7px 10px;font-size:14px;text-align:left}
+.steps{font-size:13px;color:#777;margin-bottom:18px}
+.steps b{color:#0b3d6e}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Sewa Setu &mdash; Old Age Pension Portal</h1>
+  <div class="sub">Department of Social Welfare &middot; Government of Purvanchal</div>
+</div>
+<div class="band"></div>
+<div class="container">
+{% with messages = get_flashed_messages() %}
+  {% for m in messages %}<div class="flash">{{ m }}</div>{% endfor %}
+{% endwith %}
+{% block content %}{% endblock %}
+</div>
+<div class="footer">
+  <a href="/about">About the Scheme</a> |
+  <a href="/rti">RTI</a> |
+  <a href="/grievance">Grievance Cell</a> |
+  <a href="http://swd.purvanchal.nic.in/pension-rules-2019.pdf">Pension Rules 2019</a> |
+  <a href="/contact">Contact Us</a><br>
+  Site designed &amp; developed by Netlink Infosolutions Pvt Ltd. Best viewed in 1024x768.
+</div>
+</body>
+</html>

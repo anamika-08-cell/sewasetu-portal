@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome</h2>
+<p>The Old Age Pension Scheme provides a monthly pension of Rs. 250 to eligible
+senior citizens above 60 years of age who are residents of Purvanchal.</p>
+{% if hours_left is not none %}
+<p><b>Application window closes in approximately {{ hours_left }} hours</b>
+(midnight, 31 October).</p>
+{% else %}
+<p><b>The application window for this scheme has closed.</b></p>
+{% endif %}
+<p>
+  <a href="/apply"><button class="btn">Apply for Pension</button></a>
+  &nbsp;
+  <a href="/status"><button class="btn" style="background:#555">Check Application Status</button></a>
+</p>
+<h3>How to apply</h3>
+<ol class="note">
+  <li>Verify your mobile number with OTP.</li>
+  <li>Fill the application form (personal details, address, bank details).</li>
+  <li>Upload your age proof document (JPG or PDF, maximum 5 MB).</li>
+  <li>Submit the declaration. Note down your Application Number.</li>
+</ol>
+<p class="note">For assistance visit your nearest Block Development Office.</p>
+{% endblock %}

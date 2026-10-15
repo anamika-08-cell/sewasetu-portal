@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<p><a href="/admin/applications?status=PENDING">Pending</a> |
+<a href="/admin/applications?status=APPROVED">Approved</a> |
+<a href="/admin/applications?status=REJECTED">Rejected</a> |
+<a href="/admin/applications?status=DEEMED_APPROVED">Deemed Approved</a></p>
+
+<h3>Applications by Status</h3>
+<table class="tbl" style="max-width:400px">
+{% for s, c in by_status %}
+<tr><td>{{ s }}</td><td style="text-align:right">{{ c }}</td></tr>
+{% endfor %}
+</table>
+
+<h3 style="color:#a33">Pending beyond {{ sla }}-day SLA: {{ overdue }}</h3>
+
+<h3>Pending by Block</h3>
+<table class="tbl" style="max-width:400px">
+{% for b, c in by_block %}
+<tr><td>{{ b }}</td><td style="text-align:right">{{ c }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

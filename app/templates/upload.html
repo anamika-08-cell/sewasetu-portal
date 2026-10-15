@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="steps"><b>Step 5 of 6:</b> Document Upload</div>
+<h2>Upload Age Proof Document</h2>
+<p class="note">Accepted documents: Birth certificate, School leaving certificate,
+Voter ID. Accepted formats: <b>JPG or PDF, maximum size 5 MB</b>.</p>
+<form method="post" enctype="multipart/form-data">
+  <label>Select Document</label>
+  <input type="file" name="document">
+  <p><button class="btn" type="submit">Upload &amp; Continue</button></p>
+</form>
+{% endblock %}

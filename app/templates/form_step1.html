@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="steps"><b>Step 2 of 6:</b> Personal Details</div>
+<h2>Personal Details</h2>
+<form method="post">
+  <label>Full Name of Applicant (as per age proof document)</label>
+  <input type="text" name="applicant_name" value="{{ data.get('applicant_name','') }}">
+  <label>Date of Birth (DD/MM/YYYY)</label>
+  <input type="text" name="dob" placeholder="DD/MM/YYYY" value="{{ data.get('dob','') }}">
+  <label>Gender</label>
+  <select name="gender">
+    <option value="">--Select--</option>
+    <option {% if data.get('gender')=='Male' %}selected{% endif %}>Male</option>
+    <option {% if data.get('gender')=='Female' %}selected{% endif %}>Female</option>
+    <option {% if data.get('gender')=='Other' %}selected{% endif %}>Other</option>
+  </select>
+  <label>Marital Status</label>
+  <select name="marital_status">
+    <option value="">--Select--</option>
+    <option {% if data.get('marital_status')=='Married' %}selected{% endif %}>Married</option>
+    <option {% if data.get('marital_status')=='Unmarried' %}selected{% endif %}>Unmarried</option>
+    <option {% if data.get('marital_status')=='Widowed' %}selected{% endif %}>Widowed</option>
+  </select>
+  <label>Husband's Name</label>
+  <input type="text" name="husband_name" value="{{ data.get('husband_name','') }}">
+  <label>Husband's Current Employer</label>
+  <input type="text" name="husband_employer" value="{{ data.get('husband_employer','') }}">
+  <p class="note">Fields marked above are mandatory as applicable.</p>
+  <p><button class="btn" type="submit">Save &amp; Continue</button></p>
+</form>
+{% endblock %}

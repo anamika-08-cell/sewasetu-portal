@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="steps"><b>Step 1 of 6:</b> Mobile Verification</div>
+<h2>Enter OTP</h2>
+<p class="note">An OTP has been sent to {{ mobile }}.</p>
+<form method="post">
+  <label>OTP</label>
+  <input type="text" name="otp" maxlength="6" style="max-width:160px">
+  <p><button class="btn" type="submit">Verify</button></p>
+</form>
+{% endblock %}

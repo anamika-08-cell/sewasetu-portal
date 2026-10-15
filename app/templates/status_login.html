@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Application Status Portal</h2>
+<form method="post">
+  <label>Mobile Number</label>
+  <input type="text" name="mobile" maxlength="10">
+  <label>Password</label>
+  <input type="password" name="password">
+  <p><button class="btn" type="submit">Login</button></p>
+</form>
+<p class="note"><a href="/status/reset">Forgot password?</a></p>
+{% endblock %}

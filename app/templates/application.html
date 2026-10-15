@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Application Status</h2>
+<table class="tbl" style="max-width:640px">
+  <tr><th>Application No</th><td>{{ a[0] }}</td></tr>
+  <tr><th>Applicant Name</th><td>{{ a[1] }}</td></tr>
+  <tr><th>Mobile</th><td>{{ a[2] }}</td></tr>
+  <tr><th>Date of Birth</th><td>{{ a[3] }}</td></tr>
+  <tr><th>Village</th><td>{{ a[4] }}</td></tr>
+  <tr><th>Block</th><td>{{ a[5] }}</td></tr>
+  <tr><th>Bank Account</th><td>{{ a[6] }}</td></tr>
+  <tr><th>IFSC</th><td>{{ a[7] }}</td></tr>
+  <tr><th>Status</th><td><b>{{ a[8] }}</b></td></tr>
+  <tr><th>Submitted</th><td>{{ a[9] }}</td></tr>
+  <tr><th>Decided</th><td>{{ a[10] or '-' }}</td></tr>
+</table>
+<p><a href="/ack/{{ app_id }}.pdf">Download Acknowledgment (PDF)</a></p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Applications &mdash; {{ status }}</h2>
+<p><a href="/admin/dashboard">&laquo; Dashboard</a></p>
+<table class="tbl">
+<tr><th>ID</th><th>Application No</th><th>Name</th><th>Mobile</th><th>Block</th>
+<th>Status</th><th>Submitted</th><th></th></tr>
+{% for r in rows %}
+<tr>
+  <td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td><td>{{ r[3] }}</td>
+  <td>{{ r[4] }}</td><td>{{ r[5] }}</td><td>{{ r[6] }}</td>
+  <td><a href="/admin/application/{{ r[0] }}">View</a></td>
+</tr>
+{% endfor %}
+</table>
+<p>
+{% if page > 1 %}<a href="?status={{ status }}&page={{ page - 1 }}">&laquo; Previous</a>{% endif %}
+&nbsp;<a href="?status={{ status }}&page={{ page + 1 }}">Next &raquo;</a>
+</p>
+{% endblock %}

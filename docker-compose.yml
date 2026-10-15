@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: sewasetu
+      POSTGRES_USER: sewasetu
+      POSTGRES_PASSWORD: sewasetu123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./app/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./seed/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+
+  app:
+    build: ./app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - smsgw
+    volumes:
+      - uploads:/var/sewasetu/uploads
+      - applogs:/var/log/sewasetu
+
+  scheduler:
+    build: ./app
+    command: ["cron", "-f"]
+    depends_on:
+      - db
+    volumes:
+      - applogs:/var/log/sewasetu
+
+  smsgw:
+    build: ./smsgw
+    # internal only — reached by the app over the docker network and exposed to
+    # users via the app at /__gateway/ (so no second host port is needed)
+    expose:
+      - "8025"
+
+volumes:
+  pgdata:
+  uploads:
+  applogs:

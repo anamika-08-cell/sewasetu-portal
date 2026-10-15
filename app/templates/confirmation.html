@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Application Submitted</h2>
+<p>Your application has been received.</p>
+<table class="tbl" style="max-width:480px">
+  <tr><th>Application Number</th><td><b>{{ app_no }}</b></td></tr>
+</table>
+<p class="note">Please note down your Application Number. You can check your
+application status on the <a href="/status">status portal</a> using your mobile
+number and password (your date of birth in DDMMYYYY format).</p>
+<p><a href="/ack/{{ app_id }}.pdf"><button class="btn">Download Acknowledgment (PDF)</button></a></p>
+{% endblock %}

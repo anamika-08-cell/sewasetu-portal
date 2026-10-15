@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Application {{ a[0] }}</h2>
+<p><a href="/admin/applications">&laquo; Back to list</a></p>
+<table class="tbl" style="max-width:640px">
+  <tr><th>Applicant Name</th><td>{{ a[1] }}</td></tr>
+  <tr><th>Mobile</th><td>{{ a[2] }}</td></tr>
+  <tr><th>Date of Birth</th><td>{{ a[3] }}</td></tr>
+  <tr><th>Gender</th><td>{{ a[4] }}</td></tr>
+  <tr><th>Marital Status</th><td>{{ a[5] }}</td></tr>
+  <tr><th>Village</th><td>{{ a[6] }}</td></tr>
+  <tr><th>Block</th><td>{{ a[7] }}</td></tr>
+  <tr><th>Bank Account</th><td>{{ a[8] }}</td></tr>
+  <tr><th>IFSC</th><td>{{ a[9] }}</td></tr>
+  <tr><th>Document</th><td>{{ a[10] or '-' }}</td></tr>
+  <tr><th>Status</th><td><b>{{ a[11] }}</b></td></tr>
+  <tr><th>Submitted</th><td>{{ a[12] }}</td></tr>
+  <tr><th>Decided</th><td>{{ a[13] or '-' }} {{ a[14] or '' }}</td></tr>
+</table>
+{% if a[11] == 'PENDING' %}
+<p>
+<form method="post" action="/admin/approve/{{ app_id }}" style="display:inline">
+  <button class="btn" type="submit">Approve</button>
+</form>
+&nbsp;
+<form method="post" action="/admin/reject/{{ app_id }}" style="display:inline">
+  <button class="btn" style="background:#a33" type="submit">Reject</button>
+</form>
+</p>
+{% endif %}
+{% endblock %}
