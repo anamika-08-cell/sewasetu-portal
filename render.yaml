@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: sewasetu-web-app
+    env: docker
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: sewasetu-postgres-db
+          property: connectionString
+
+databases:
+  - name: sewasetu-postgres-db
+    plan: free
